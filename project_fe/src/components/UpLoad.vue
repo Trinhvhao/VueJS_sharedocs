@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,3 +37,4 @@ export default {
   margin-top: 60px;
 }
 </style>
+

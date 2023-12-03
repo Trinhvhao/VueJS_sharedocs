@@ -5,30 +5,16 @@
       <a href="#" class="btn btn-outline-secondary me-2">Login</a>
       <a href="#" class="btn btn-primary">Free Trial</a>
     </div>
-    <div class="header container w-100 p-5">
+    <div class="header container w-100">
       <h1
         class="mb-5 text-center col-12 text-uppercase"
-        style="font-size: 3rem"
+        style="font-size: 2.7rem"
       >
         Share Document
       </h1>
-      <div class="d-flex justify-content-center h-100 text-center">
-        <div class="searchbar w-50 mx-2">
-          <input
-            type="text"
-            class="input form-control"
-            placeholder="Enter name document "
-          />
-        </div>
-        <div class="button-search">
-          <button class="btn-search btn btn-primary">
-            Search
-            <i class="fa-solid fa-magnifying-glass m-1"></i>
-          </button>
-        </div>
-      </div>
     </div>
 
+    <SlideShowVue />
     <!-- Body -->
     <div class="body-container">
       <div class="first-content container mt-5">
@@ -146,169 +132,6 @@
           <div class="sc-184bfsn-3 eInsOu"></div>
         </header>
       </div>
-      <div class="third-content">
-        <div class="card-container">
-          <div class="row">
-            <div class="card col-md-4 p-2 ">
-              <div class="card-body">
-                <a
-                  class="card-link"
-                  href="/blog/how-to-merge-pdf-files-with-adobe-reader"
-                  ><div class="card-img">
-                    <img
-                      src="//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png"
-                      alt="merge-large@2x.png"
-                      loading="lazy"
-                      
-                    /></div></a
-                ><a
-                  class="card-link"
-                  href="/blog?type=how-to&amp;tool=merge-pdf"
-                  ><div class="card-content">How To Merge PDF</div></a
-                ><a
-                  class="card-link"
-                  href="/blog/how-to-merge-pdf-files-with-adobe-reader"
-                  ><div class="card-header">
-                    How to Merge PDF Files with Adobe Reader
-                  </div>
-                  <div class="card-title">
-                    Guide to combine PDF files into one within a few clicks,
-                    online or offline, with Adobe and its best alternatives.
-                  </div></a
-                >
-              </div>
-            </div>
-            <div class="card col-md-4 p-2 ">
-              <div class="card-body">
-                <a class="card-link" href="/blog/rearrange-pdf-pages"
-                  ><div class="card-img">
-                    <img
-                      src="//images.ctfassets.net/l3l0sjr15nav/79eVkJy3VSEo6WQYqqiiay/ac6ae26ff77746ca1b09f39fe53aab21/organize-large_2x.png"
-                      alt="organize-large@2x.png"
-                      loading="lazy"
-                      
-                    /></div></a
-                ><a
-                  class="card-link"
-                  href="/blog?type=how-to&amp;tool=merge-pdf"
-                  ><div class="card-content">How To Merge PDF</div></a
-                ><a class="card-link" href="/blog/rearrange-pdf-pages"
-                  ><div class="card-header">
-                    Rearrange PDF Pages Online for Free
-                  </div>
-                  <div class="card-title">
-                    Free and easy-to-use online tool to rearrange, delete and
-                    rotate PDF pages online. No registration, download or
-                    registration required.
-                  </div></a
-                >
-              </div>
-            </div>
-            <div class="card col-md-4 p-2  ">
-              <div class="card-body">
-                <a class="card-link" href="/blog/pdf-joiner"
-                  ><div class="card-img">
-                    <img
-                      src="//images.ctfassets.net/l3l0sjr15nav/3uY7IHKU1aa2suYu2GC2kA/f06aa931aa0f9a5f958bd2f464ae7a6c/pdf-joiner-join-pdf-files-together-free-online_2x.png"
-                      alt="pdf-joiner-join-pdf-files-together-free-online@2x.png"
-                      loading="lazy"
-                      
-                    /></div></a
-                ><a
-                  class="card-link"
-                  href="/blog?type=how-to&amp;tool=merge-pdf"
-                  ><div class="card-content">How To Merge PDF</div></a
-                ><a class="card-link" href="/blog/pdf-joiner"
-                  ><div class="card-header">
-                    PDF Joiner—Merge PDF Files Online for Free
-                  </div>
-                  <div class="card-title">
-                    Join PDF files together online without cost or registration,
-                    in a simple click.
-                  </div></a
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="card col-md-4 p-2 ">
-              <div class="card-body">
-                <a class="card-link" href="/blog/add-pages-to-pdf"
-                  ><div class="card-img">
-                    <img
-                      src="//images.ctfassets.net/l3l0sjr15nav/16qDfj9ygCIMieAsYUGEO6/055e457a1e91fc8ef14bdd9d6eba8dd3/how-to-combine-multiple-pdf-files-into-one-document_2x.png"
-                      alt="how-to-combine-multiple-pdf-files-into-one-document@2x.png"
-                      loading="lazy"
-                      
-                    /></div></a
-                ><a
-                  class="card-link"
-                  href="/blog?type=how-to&amp;tool=merge-pdf"
-                  ><div class="card-content">How To Merge PDF</div></a
-                ><a class="card-link" href="/blog/add-pages-to-pdf"
-                  ><div class="card-header">
-                    Add Pages to PDF Files and Combine PDF Pages Online for Free
-                  </div>
-                  <div class="card-title">
-                    No watermarks or size limit—just a simple and easy-to-use
-                    online tool to add pages to your PDF files for free.
-                  </div></a
-                >
-              </div>
-            </div>
-            <div class="card col-md-4 p-2 ">
-              <div class="card-body">
-                <a class="card-link" href="/blog/how-to-combine-pdfs"
-                  ><div class="card-img">
-                    <img
-                      src="//images.ctfassets.net/l3l0sjr15nav/16qDfj9ygCIMieAsYUGEO6/055e457a1e91fc8ef14bdd9d6eba8dd3/how-to-combine-multiple-pdf-files-into-one-document_2x.png"
-                      alt="how-to-combine-multiple-pdf-files-into-one-document@2x.png"
-                      loading="lazy"
-                      
-                    /></div></a
-                ><a
-                  class="card-link"
-                  href="/blog?type=how-to&amp;tool=merge-pdf"
-                  ><div class="card-content">How To Merge PDF</div></a
-                ><a class="card-link" href="/blog/how-to-combine-pdfs"
-                  ><div class="card-header">
-                    How to Combine PDF Files Online
-                  </div>
-                  <div class="card-title">
-                    You can use our online tool to merge your PDF files
-                    instantly—just drag and drop your files to start.
-                  </div></a
-                >
-              </div>
-            </div>
-            <div class="card col-md-4 p-2 ">
-              <div class="card-body">
-                <a class="card-link" href="/blog/how-to-end-a-cover-letter"
-                  ><div class="card-img">
-                    <img
-                      src="//images.ctfassets.net/l3l0sjr15nav/3BN1vstZbMspH2JfGRxqlw/4f1a4df9427af28e9dc85b197b1b8c17/Follow-up-email-after-interview-blog-banner.png"
-                      alt="Follow-up-email-after-interview-blog-banner.png"
-                      loading="lazy"
-                      
-                    /></div></a
-                ><a
-                  class="card-link"
-                  href="/blog?type=how-to&amp;tool=merge-pdf"
-                  ><div class="card-content">How To Merge PDF</div></a
-                ><a class="card-link" href="/blog/how-to-end-a-cover-letter"
-                  ><div class="card-header">How to End a Cover Letter</div>
-                  <div class="card-title">
-                    When you apply for a job, there’s always space for you to
-                    attach a cover letter. And you should: It may be the only
-                    document the hiring manager reads.
-                  </div></a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="faqs">
         <Accordion
           v-for="(faq, i) in faqs"
@@ -401,44 +224,48 @@ body {
 /* Add more styles as needed */
 
 /* Card */
-.card{
+.card {
   border: none;
 }
-.card-body{
+.card-body {
   padding: 0;
 }
 .card-container {
   max-width: 1200px;
 }
-.card-img{
+.card-img {
   overflow: hidden;
-    height: 162px;
-    padding-bottom: 12px;
+  height: 162px;
+  padding-bottom: 12px;
 }
-.card-img img{
+.card-img img {
   object-fit: cover;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
-a{
+a {
   text-decoration: none;
 }
-.card-header{
+.card-header {
   color: rgb(36, 136, 207);
   font-weight: bold;
   padding: 0;
 }
-.card-title{
+.card-title {
   color: black;
   font-size: 1rem;
 }
-.card-content{
-      font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: rgb(117, 117, 117);
-    padding-bottom: 6px;
-    text-transform: uppercase;
+.card-content {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(117, 117, 117);
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+.card-container {
+  align-items: center;
+  margin: auto;
 }
 </style>
 
@@ -446,8 +273,12 @@ a{
 <!-- Initialize Swiper -->
 <script lang="ts">
 import Accordion from "./Accordion.vue";
+import SlideShowVue from "./SlideShow.vue";
 export default {
-  components: { Accordion },
+  components: {
+    Accordion,
+    SlideShowVue,
+  },
   data() {
     return {
       faqs: [

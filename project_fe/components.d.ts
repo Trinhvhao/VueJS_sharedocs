@@ -29,6 +29,8 @@ declare module 'vue' {
     SearchFilter: typeof import('./src/components/SearchFilter.vue')['default']
     Sidebar: typeof import('./src/components/Sidebar.vue')['default']
     SlideShow: typeof import('./src/components/SlideShow.vue')['default']
+    TestDownload: typeof import('./src/components/TestDownload.vue')['default']
+    TimeLine: typeof import('./src/components/TimeLine.vue')['default']
     UpLoad: typeof import('./src/components/UpLoad.vue')['default']
   }
 }

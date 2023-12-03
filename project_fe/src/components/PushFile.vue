@@ -1,11 +1,13 @@
 <template>
   <div>
-    Name <input type="text" v-model="name" placeholder="Enter your name">
-    Content <input v-model="content" placeholder="Enter your content">
-    Email <input type="text" v-model="email" placeholder="Enter your email">
-    File <input type="text" v-model="file" placeholder="Enter your file">
-    ID <input type="text" v-model="id" placeholder="Enter your ID">
-
+    ID<input type="text" v-model="id" placeholder="Enter your name">
+    Title<input v-model="title" placeholder="Enter your content">
+    Description<input type="text" v-model="description" placeholder="Enter your email">
+    File<input type="text" v-model="link" placeholder="Enter your file">
+    CategoryLink<input type="text" v-model="categoryLink" placeholder="Enter your ID">
+    Category<input type="text" v-model="category" placeholder="Enter your ID">
+    ImageLink<input type="text" v-model="ImageLink" placeholder="Enter your ID">
+  
     <button @click="sendContent">Send Content</button>
   </div>
 </template>

@@ -1,7 +1,6 @@
 <template>
     <main class="home-page">
         <Home/>
-         
     </main>
     
 </template>

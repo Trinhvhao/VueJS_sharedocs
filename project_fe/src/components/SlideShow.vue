@@ -59,7 +59,7 @@ export default defineComponent({
     font-size: 15px;
     border-radius: 8px;
    font-family: 'Raleway', sans-serif;
-    background: rgb(24 197 216 / 27%);
+    background:rgb(67 220 222 / 76%);
 }
 
 .slide-content {
@@ -71,5 +71,11 @@ export default defineComponent({
 }
 .hidden-text{
     display: none;
+}
+@media (max-width:576px) {
+  .text-below-slide {
+    width: 100%;
+    margin-top: 100px;
+  }
 }
 </style>

@@ -1,15 +1,30 @@
-<!-- SearchFilter.vue -->
 <template>
   <div class="card-container">
-       <input type="text" v-model="searchQuery" placeholder="Enter your search query" />
-    <div v-if="filteredItems.length > 0" class="grid-container"> 
+    <input class="search"
+      type="text"
+      v-model="searchQuery"
+      placeholder="Enter your search query"
+    />
+    <div v-if="filteredItems.length > 0" class="grid-container">
       <div v-for="item in filteredItems" :key="item.id" class="card p-2">
+        <!-- Content of each card -->
         <div class="card-body">
-          <a class="card-link" :href="item.link">
-            <div class="card-img">
-              <img :src="item.image" :alt="item.alt" loading="lazy" />
-            </div>
-          </a>
+          <div class="card-img">
+            <img :src="item.imagelink" :alt="item.alt" />
+          </div>
+          <div class="card-actions">
+            <a
+              class="card-link p-2"
+              :href="item.link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View
+            </a>
+            <button class="card-button" @click="downloadItem(item.link)">
+              Download
+            </button>
+          </div>
           <a class="card-link" :href="item.categoryLink">
             <div class="card-content">{{ item.category }}</div>
           </a>
@@ -19,89 +34,66 @@
           </a>
         </div>
       </div>
-      </div> 
-      <div v-else class="no-results-message">No matching items found.</div>
     </div>
-
+    <div v-else class="no-results-message">No matching items found.</div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+import { saveAs } from "file-saver";
+import { storage } from "../firebase"; // Thay đổi đường dẫn tới file firebase.js của bạn
+import { ref, getDownloadURL } from "firebase/storage";
 export default {
+  methods: {
+    downloadItem(item) {
+      console.log("item.link:", item.link);
+      const fileRef = ref(storage, item.link);
+      getDownloadURL(fileRef)
+        .then((downloadUrl) => {
+          axios
+            .get(downloadUrl, { responseType: "blob" })
+            .then((response) => {
+              const blob = new Blob([response.data], {
+                type: "application/pdf",
+              });
+              saveAs(blob, item.title);
+            })
+            .catch((error) => {
+              console.error("Error:", error.message);
+            });
+        })
+        .catch((error) => {
+          console.error("Error:", error.message);
+        });
+    },
+  },
   data() {
     return {
-      searchQuery: '',
-      items: [
-        // Your data items go here
-              {
-        id: 1,
-        title: 'How to Merge PDF Files with Adobe Reader',
-        description: 'Guide to combine PDF files into one within a few clicks, online or offline, with Adobe and its best alternatives.',
-        link: '/blog/how-to-merge-pdf-files-with-adobe-reader',
-        image: '//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png',
-        alt: 'merge-large@2x.png',
-        category: 'How To Merge PDF',
-        categoryLink: '/blog?type=how-to&tool=merge-pdf',
-      },
-            {
-        id: 2,
-        title: 'Rearrange PDF Pages Online for Free',
-        description: 'Free and easy-to-use online tool to rearrange, delete and rotate PDF pages online. No registration, download or registration required.',
-        link: '/blog/how-to-merge-pdf-files-with-adobe-reader',
-        image: '//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png',
-        alt: 'merge-large@2x.png',
-        category: 'How To Merge PDF',
-        categoryLink: '/blog?type=how-to&tool=merge-pdf',
-      },
-            {
-        id: 3,
-        title: 'Add Pages to PDF Files and Combine PDF Pages Online for Free',
-        description: 'No watermarks or size limit—just a simple and easy-to-use online tool to add pages to your PDF files for free.',
-        link: '/blog/how-to-merge-pdf-files-with-adobe-reader',
-        image: '//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png',
-        alt: 'merge-large@2x.png',
-        category: 'How To Merge PDF',
-        categoryLink: '/blog?type=how-to&tool=merge-pdf',
-      },
-                  {
-        id: 4,
-        title: 'PDF Joiner—Merge PDF Files Online for Free',
-        description: 'Join PDF files together online without cost or registration, in a simple click.',
-        link: '/blog/how-to-merge-pdf-files-with-adobe-reader',
-        image: '//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png',
-        alt: 'merge-large@2x.png',
-        category: 'How To Merge PDF',
-        categoryLink: '/blog?type=how-to&tool=merge-pdf',
-      },
-                  {
-        id: 5,
-        title: 'How to Combine PDF Files Online',
-        description: 'You can use our online tool to merge your PDF files instantly—just drag and drop your files to start.',
-        link: '/blog/how-to-merge-pdf-files-with-adobe-reader',
-        image: '//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png',
-        alt: 'merge-large@2x.png',
-        category: 'How To Merge PDF',
-        categoryLink: '/blog?type=how-to&tool=merge-pdf',
-      },
-                  {
-        id: 6,
-        title: 'How to End a Cover Letter',
-        description: 'When you apply for a job, there’s always space for you to attach a cover letter. And you should: It may be the only document the hiring manager reads.',
-        link: '/blog/how-to-merge-pdf-files-with-adobe-reader',
-        image: '//images.ctfassets.net/l3l0sjr15nav/73nZxxfb2Mgc6iEM6iY0EC/337de566c72e125db4e9c06c6464d5fa/merge-large_2x.png',
-        alt: 'merge-large@2x.png',
-        category: 'How To Merge PDF',
-        categoryLink: '/blog?type=how-to&tool=merge-pdf',
-      },
-      ],
+      searchQuery: "",
+      items: [],
     };
+  },
+  mounted() {
+    // Replace the URL with your Mock API endpoint
+    const apiUrl = "https://65661495eb8bb4b70ef2e149.mockapi.io/files";
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        this.items = response.data;
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
   },
   computed: {
     filteredItems() {
-      return this.items.filter(item => {
+      return this.items.filter((item) => {
         return (
           item.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-          item.description.toLowerCase().includes(this.searchQuery.toLowerCase())
+          item.description
+            .toLowerCase()
+            .includes(this.searchQuery.toLowerCase())
         );
       });
     },
@@ -114,6 +106,8 @@ export default {
 .card-container {
   max-width: 1200px;
   margin: 0 auto;
+  align-items: center;
+  text-align: center;
 }
 
 .grid-container {
@@ -121,7 +115,25 @@ export default {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
-
+.search{
+  padding:5px;
+  font-size: 1.2rem;
+  border:2px solid rgb(20 33 210);
+  border-radius: 20px ;
+  width: 60%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+}
+.search:focus{
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+}
+.search:hover{
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+}
 .card {
   border: none;
 }
@@ -129,13 +141,25 @@ export default {
 .card-body {
   padding: 0;
 }
-
+.card-title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
 .card-img {
   overflow: hidden;
   height: 162px;
   padding-bottom: 12px;
 }
-
+.card-button {
+  background-color: #a4e3ce;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid #3498db;
+  transition: all 0.2s ease-in;
+}
+.card-button:hover {
+  background-color: rgb(62, 144, 220);
+  scale: 1.05;
+}
 .card-img img {
   object-fit: cover;
   width: 100%;
@@ -153,7 +177,7 @@ a {
 }
 
 .card-title {
-  color: black;
+  color: rgb(0 0 0 / 60%);
   font-size: 1rem;
 }
 
@@ -161,8 +185,14 @@ a {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  color: rgb(117, 117, 117);
+  color: rgb(138, 40, 45);
   padding-bottom: 6px;
   text-transform: uppercase;
+  padding-top:8px;
+}
+.card:hover {
+  transform: scale(1.05); /* Phóng to thẻ khi di chuột vào */
+  transition: all 0.3s ease-in-out;
+  background-color: azure;
 }
 </style>
