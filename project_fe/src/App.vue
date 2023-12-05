@@ -12,7 +12,13 @@
       <div class="main-content">
         <div><router-view /></div>
         <div v-if="isHomePage">
+           <SlideOutVue />
           <SearchFilterVue />
+          <PaginationVue />
+          <div class="expand-content">
+            <HomeContent />
+           
+          </div>
         </div>
       </div>
     </div>
@@ -28,6 +34,9 @@ import SlideShowVue from "./components/SlideShow.vue";
 import UpLoadVue from "./components/UpLoad.vue";
 import PushFileVue from "./components/PushFile.vue";
 import TestDownloadVue from "./components/TestDownload.vue";
+import PaginationVue from "./components/Pagination.vue";
+import HomeContent from "./components/HomeContent.vue";
+import SlideOutVue from "./components/SlideOut.vue";
 export default {
   components: {
     HomePageVue,
@@ -38,9 +47,12 @@ export default {
     UpLoadVue,
     PushFileVue,
     TestDownloadVue,
+    PaginationVue,
+    HomeContent,
+    SlideOutVue,
   },
-  computed:{
-     isHomePage() {
+  computed: {
+    isHomePage() {
       // Kiểm tra nếu đang ở trang chủ
       return this.$route.path === "/";
     },
@@ -52,7 +64,7 @@ export default {
 .container-fluid {
   display: flex;
   margin-top: 0;
-  padding:0;
+  padding: 0;
 }
 .app {
   display: flex;

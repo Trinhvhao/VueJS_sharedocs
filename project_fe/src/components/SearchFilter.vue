@@ -1,6 +1,7 @@
 <template>
   <div class="card-container">
-    <input class="search"
+    <input
+      class="search"
       type="text"
       v-model="searchQuery"
       placeholder="Enter your search query"
@@ -13,16 +14,20 @@
             <img :src="item.imagelink" :alt="item.alt" />
           </div>
           <div class="card-actions">
-            <a
-              class="card-link p-2"
-              :href="item.link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View
-            </a>
-            <button class="card-button" @click="downloadItem(item.link)">
+            <button id="card-botton1">
+              <strong
+                ><a
+                  class="card-link p-2"
+                  :href="item.link"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  View
+                  <i class="fa-solid fa-eye"></i>
+              </a></strong>
+            </button>
+            <button class="card-button2" @click="downloadItem(item.link)">
               Download
+              <i class="fa-solid fa-download"></i>
             </button>
           </div>
           <a class="card-link" :href="item.categoryLink">
@@ -109,28 +114,27 @@ export default {
   align-items: center;
   text-align: center;
 }
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
-.search{
-  padding:5px;
+.search {
+  padding: 5px;
   font-size: 1.2rem;
-  border:2px solid rgb(20 33 210);
-  border-radius: 20px ;
+  border: 2px solid rgb(20 33 210);
+  border-radius: 20px;
   width: 60%;
   text-align: center;
   margin-bottom: 20px;
   font-family: "Poppins", sans-serif;
 }
-.search:focus{
+.search:focus {
   outline: none;
   border-color: #3498db;
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
 }
-.search:hover{
+.search:hover {
   transform: scale(1.02);
   transition: all 0.2s ease-in-out;
 }
@@ -149,14 +153,15 @@ export default {
   height: 162px;
   padding-bottom: 12px;
 }
-.card-button {
+.card-button2 {
   background-color: #a4e3ce;
+  margin-left: 5px;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid #3498db;
   transition: all 0.2s ease-in;
 }
-.card-button:hover {
+.card-button2:hover {
   background-color: rgb(62, 144, 220);
   scale: 1.05;
 }
@@ -165,7 +170,22 @@ export default {
   width: 100%;
   height: 100%;
 }
-
+#card-botton1 {
+  margin-right: 5px;
+  border-radius: 9px;
+  background: #c2d5d4;
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  transition: 0.4s;
+}
+#card-botton1:hover {
+  box-shadow: 7px 5px 56px -14px #00d9d2;
+}
+#card-botton1:active {
+  transform: scale(0.97);
+  box-shadow: 7px 5px 56px -10px #c3d900;
+}
 a {
   text-decoration: none;
 }
@@ -188,7 +208,7 @@ a {
   color: rgb(138, 40, 45);
   padding-bottom: 6px;
   text-transform: uppercase;
-  padding-top:8px;
+  padding-top: 8px;
 }
 .card:hover {
   transform: scale(1.05); /* Phóng to thẻ khi di chuột vào */

@@ -2,7 +2,43 @@
   <div class="home">
     <!-- Header -->
     <div class="login-section text-end mb-3">
-      <a href="#" class="btn btn-outline-secondary me-2">Login</a>
+      <div class="user" style="padding-bottom: 5px">
+        <button id="btn-message" class="button-message">
+          <div class="content-avatar">
+            <div class="status-user" :class="{ 'online-status': $store.state.user }"></div>
+            <div class="avatar">
+              <svg
+                class="user-img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12,12.5c-3.04,0-5.5,1.73-5.5,3.5s2.46,3.5,5.5,3.5,5.5-1.73,5.5-3.5-2.46-3.5-5.5-3.5Zm0-.5c1.66,0,3-1.34,3-3s-1.34-3-3-3-3,1.34-3,3,1.34,3,3,3Z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="notice-content">
+            <div class="username">
+              <span class="user-text p-2"
+                >Welcome,{{
+                  $store.state.user ? $store.state.user.username : "Guest"
+                }}</span
+              >
+            </div>
+            <div class="lable-message">
+              Account
+            </div>
+            <div class="user-id">
+              <span style="font-weight: 700">@{{ $store.state.email ? $store.state.email.email : "none" }}</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <router-link to="/login" class="btn btn-outline-secondary me-2"
+        >Login</router-link
+      >
       <a href="#" class="btn btn-primary">Free Trial</a>
     </div>
     <div class="header container w-100">
@@ -154,11 +190,244 @@ h1 {
   color: #0cada0ad; /* Set your desired text color */
   font-weight: bold;
 }
+.first-content h3 {
+  color: #007bff;
+  text-shadow: 0 0 10px rgb(11 215 255 / 80%);
+}
 
 .searchbar {
   position: relative;
 }
+.btn-outline-secondary{
+  margin-top:5px;
+  transition: all 0.2s ease-in-out;
+}
+.btn-outline-secondary:hover{
+  scale: 1.2;
+  color:black;
+  background: var(--bg-color);
+}
+#btn-message {
+  --text-color: #000;
+  --bg-color-sup: #d2d2d2;
+  --bg-color: #f4f4f4;
+  --bg-hover-color: #ffffff;
+  --online-status: #00da00;
+  --offline-status: #8b8b8b;
+  --font-size: 16px;
+  --btn-transition: all 0.2s ease-out;
+}
+.button-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 400 var(--font-size) Helvetica Neue, sans-serif;
+  box-shadow: 0 0 2.17382px rgba(0, 0, 0, 0.049),
+    0 1.75px 6.01034px rgba(0, 0, 0, 0.07),
+    0 3.63px 14.4706px rgba(0, 0, 0, 0.091), 0 22px 48px rgba(0, 0, 0, 0.14);
+  background-color: var(--bg-color);
+  border-radius: 68px;
+  cursor: pointer;
+  padding: 6px 10px 6px 6px;
+  width: fit-content;
+  height: 40px;
+  border: 0;
+  overflow: hidden;
+  position: relative;
+  transition: var(--btn-transition);
+}
+.button-message:hover {
+  height: 56px;
+  padding: 8px 20px 8px 8px;
+  background-color: var(--bg-hover-color);
+  transition: var(--btn-transition);
+}
+.content-avatar {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  transition: var(--btn-transition);
+  position: relative;
+}
 
+.button-message:hover .content-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--bg-color-sup);
+}
+
+.user-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-user {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  right: 1px;
+  bottom: 1px;
+  border-radius: 50%;
+  outline: solid 2px var(--bg-color);
+   background-color: var(--offline-status);
+  transition: var(--btn-transition);
+}
+.online-status {
+  background-color: var(--online-status); /* Color for online status */
+}
+.button-message:hover .status-user {
+  width: 10px;
+  height: 10px;
+  right: 1px;
+  bottom: 1px;
+  outline: solid 3px var(--bg-hover-color);
+}
+
+.notice-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 8px;
+  text-align: initial;
+  color: var(--text-color);
+}
+
+.username {
+  letter-spacing: -6px;
+  height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: var(--btn-transition);
+}
+
+.user-id {
+  font-size: 12px;
+  letter-spacing: -6px;
+  height: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: var(--btn-transition);
+}
+
+.lable-message {
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transform: scaleY(1);
+  transition: var(--btn-transition);
+}
+.btn-primary{
+  width: 6.5rem;
+  height:2.4rem;
+  background: black;
+  color: white;
+  border: none;
+  font-size:16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.btn-primary:hover {
+ color: black;
+}
+.btn-primary::after {
+ content: "";
+ background: white;
+ position: absolute;
+ z-index: -1;
+ left: -20%;
+ right: -20%;
+ top: 0;
+ bottom: 0;
+ transform: skewX(-45deg) scale(0, 1);
+ transition: all 0.5s;
+}
+.btn-primary:hover:after {
+ transform: skewX(-45deg) scale(1, 1);
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.button-message:hover .username {
+  height: auto;
+  letter-spacing: normal;
+  opacity: 1;
+  transform: translateY(0);
+  transition: var(--btn-transition);
+}
+
+.button-message:hover .user-id {
+  height: auto;
+  letter-spacing: normal;
+  opacity: 1;
+  transform: translateY(0);
+  transition: var(--btn-transition);
+}
+
+.button-message:hover .lable-message {
+  height: 0;
+  transform: scaleY(0);
+  transition: var(--btn-transition);
+}
+
+.lable-message,
+.username {
+  font-weight: 600;
+}
+
+.number-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 8px;
+  font-size: 12px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--bg-color-sup);
+  border-radius: 20px;
+}
+
+/*==============================================*/
+@keyframes active-status {
+  0% {
+    background-color: var(--online-status);
+  }
+
+  33.33% {
+    background-color: #93e200;
+  }
+
+  66.33% {
+    background-color: #93e200;
+  }
+
+  100% {
+    background-color: var(--online-status);
+  }
+}
+.button-message:active {
+  transform: scale(0.99);
+}
+.user {
+  align-items: center;
+  justify-content: right;
+  display: flex;
+}
+.user-text {
+  font-size: 1.4rem;
+  color: rgb(47, 140, 227);
+}
 .input {
   width: 100%;
   padding: 0.375rem 0.75rem;
@@ -314,6 +583,14 @@ export default {
         }
         return faq;
       });
+    },
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    email() {
+      return this.$store.state.email;
     },
   },
 };
