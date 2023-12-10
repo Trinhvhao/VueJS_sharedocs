@@ -1,6 +1,13 @@
 <template>
-    <main class="about-page">
-      <h1>About</h1>
-      <h1>This is the about-page</h1>  
-    </main>
+  <div id="app">
+	<AboutPageVue/>
+  </div>
 </template>
+<script>
+import AboutPageVue from '../components/AboutPage.vue'
+export default {
+	components:{
+		AboutPageVue,
+	}
+}
+</script>

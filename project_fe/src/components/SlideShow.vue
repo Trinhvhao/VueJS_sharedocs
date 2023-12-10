@@ -26,10 +26,14 @@ export default defineComponent({
     const effectRef = ref("card");
     const isCardRef = computed(() => effectRef.value === "card");
      const slides = [
-      { imageSrc: "https://i.pinimg.com/564x/f4/3f/c0/f43fc0753c631c5ae9349c45524a857d.jpg", text: "Khám phá cùng chúng tôi thế giới của việc chia sẻ tài liệu miễn phí - một cộng đồng nơi kiến thức được lan truyền mà không có bất kỳ rào cản nào" },
-      { imageSrc: "https://i.pinimg.com/564x/c1/21/d3/c121d3f414b1bf5214a6b876451d26b9.jpg", text: "Chúng tôi tin rằng mỗi người đều có quyền truy cập thông tin, và chia sẻ tài liệu miễn phí là cách chúng tôi đóng góp vào sự học tập và phát triển của cộng đồng" },
+      { imageSrc: "https://i.pinimg.com/564x/8e/b6/62/8eb662b4724aa949814f8c3581b35614.jpg", text: "Khám phá cùng chúng tôi thế giới của việc chia sẻ tài liệu miễn phí - một cộng đồng nơi kiến thức được lan truyền mà không có bất kỳ rào cản nào" },
+       { imageSrc: "https://i.pinimg.com/564x/4e/27/59/4e27595c10b6355aea1eb3d9c421d1cd.jpg", text: " Hàng nghìn tài liệu, sách và bài giảng đang chờ đón bạn. Hãy tận hưởng việc học tập và chia sẻ kiến thức cùng cộng đồng lập trình đam mê." },
+      { imageSrc: "https://i.pinimg.com/564x/f7/67/bd/f767bd8f226100b2b9f34816d47b679d.jpg", text: "Chúng tôi tin rằng mỗi người đều có quyền truy cập thông tin, và chia sẻ tài liệu miễn phí là cách chúng tôi đóng góp vào sự học tập và phát triển của cộng đồng" },
       { imageSrc: "https://i.pinimg.com/564x/bb/7c/9c/bb7c9ca12e4b6efd59e5b6678e509849.jpg", text: "Ở đây, mọi người có thể tải lên và tải xuống tài liệu một cách dễ dàng, tạo nên một nguồn lực đa dạng và phong phú" },
       { imageSrc: "https://i.pinimg.com/564x/96/39/09/9639093c7c1a546708c61470c79f02e8.jpg", text: "Chúng tôi đặt ra câu hỏi: 'Tại sao giữ lại kiến thức khi nó có thể được chia sẻ để nâng cao kiến thức của cả cộng đồng?" },
+      { imageSrc: "https://i.pinimg.com/564x/33/80/34/3380347143d5e14aece580ef1d05f34d.jpg", text: "Trang web chia sẻ tài liệu của chúng tôi có thể truy cập từ mọi nơi, mọi lúc. Hỗ trợ trên điện thoại di động để bạn có thể học tập linh hoạt." },
+      { imageSrc: "https://i.pinimg.com/564x/41/1b/df/411bdf3309e086f76d37d9195c6791fb.jpg", text: "Không chỉ có thể tải về các tài liệu, sách, mà bạn còn có thể chia sẻ tài liệu của mình để đóng góp vào cộng đồng?" },
+      { imageSrc: "https://i.pinimg.com/564x/8c/1e/bc/8c1ebcacac9cc357c70aa33a1962b5cf.jpg", text: "Tìm hiểu từ nhiều nguồn đáng tin cậy với các tài liệu đa dạng về ngôn ngữ lập trình, framework, công cụ phát triển, và nhiều chủ đề khác nữa?" },
     ];
     return {
       isCard: isCardRef,
@@ -59,7 +63,7 @@ export default defineComponent({
     font-size: 15px;
     border-radius: 8px;
    font-family: 'Raleway', sans-serif;
-    background:rgb(67 220 222 / 76%);
+    background:rgb(255, 255, 255);
 }
 
 .slide-content {

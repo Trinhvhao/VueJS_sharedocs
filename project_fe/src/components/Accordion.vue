@@ -21,6 +21,7 @@ export default {
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     background-color: #FFF;
+    cursor: pointer;
 }
 .faq .question{
     position: relative;
@@ -36,7 +37,7 @@ export default {
     transform: translateY(-50%) rotate(0deg);
       width: 30px;
   height: 30px;
-  background-image: url('./arrow-down-mint.svg');
+  background-image: url('https://www.svgrepo.com/show/533621/arrow-sm-right.svg');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -50,8 +51,8 @@ export default {
   transform: translateY(-50%) rotate(90deg);
 }
 .faq .answer {
-  color: #3c3c3c;
-  font-size: 18px;
+  color: #00666c;
+  font-size: 16px;
   opacity: 0;
   max-height: 0px;
   overflow-y: hidden;

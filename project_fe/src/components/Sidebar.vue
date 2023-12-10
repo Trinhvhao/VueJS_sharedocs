@@ -1,7 +1,7 @@
 <template>
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
     <div class="logo">
-      <img :src="logoURL" alt="Vue" />
+      <router-link to="/landingpage"><img :src="logoURL" alt="Vue" /></router-link>
     </div>
 
     <div class="menu-toggle-wrap">
@@ -22,7 +22,7 @@
       </router-link>
       <router-link to="/team" class="button">
         <span class="material-icons">group</span>
-        <span class="text">Team</span>
+        <span class="text">Community</span>
       </router-link>
       <router-link to="/contact" class="button">
         <span class="material-icons">email</span>
@@ -47,7 +47,7 @@
 
 <script setup>
 import { ref } from "vue";
-import logoURL from "../assets/images/vite.svg";
+import logoURL from "../assets/vue.svg";
 
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true");
 
@@ -102,6 +102,8 @@ aside {
 
     img {
       width: 2rem;
+      height: 2rem;
+      object-fit: cover;
     }
   }
 

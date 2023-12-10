@@ -5,7 +5,10 @@
       <div class="user" style="padding-bottom: 5px">
         <button id="btn-message" class="button-message">
           <div class="content-avatar">
-            <div class="status-user" :class="{ 'online-status': $store.state.user }"></div>
+            <div
+              class="status-user"
+              :class="{ 'online-status': $store.state.user }"
+            ></div>
             <div class="avatar">
               <svg
                 class="user-img"
@@ -26,11 +29,13 @@
                 }}</span
               >
             </div>
-            <div class="lable-message">
-              Account
-            </div>
+            <div class="lable-message">Account</div>
             <div class="user-id">
-              <span style="font-weight: 700">@{{ $store.state.email ? $store.state.email.email : "none" }}</span>
+              <span style="font-weight: 700"
+                >@{{
+                  $store.state.email ? $store.state.email.email : "none"
+                }}</span
+              >
             </div>
           </div>
         </button>
@@ -46,11 +51,9 @@
         class="mb-5 text-center col-12 text-uppercase"
         style="font-size: 2.7rem"
       >
-        Share Document
+        <Header />
       </h1>
     </div>
-
-    <SlideShowVue />
     <!-- Body -->
     <div class="body-container">
       <div class="first-content container mt-5">
@@ -66,9 +69,9 @@
             />
             <h3 class="h5">Simple Online Tool To Combine PDFs</h3>
             <p>
-              Our PDF merger allows you to quickly combine multiple PDF files
-              into one single PDF document, in just a few clicks. No signup is
-              needed to use this online tool.
+              Trang web của chúng tôi cho phép bạn nhanh chóng tải lên nhiều tệp
+              trong một lần, chỉ trong vài cú nhấp chuột. Không có đăng ký cần
+              thiết để sử dụng công cụ trực tuyến này.
             </p>
           </div>
 
@@ -81,11 +84,10 @@
               height="48"
               class="img-fluid mb-3"
             />
-            <h3 class="h5">Secure PDF Merging Online</h3>
+            <h3 class="h5">Discover and read amazing publications</h3>
             <p>
-              All the files you upload, as well as the file generated on our
-              server, will be deleted permanently within an hour. Read our
-              privacy policy below for more details.
+              Xem hàng triệu ấn phẩm đầy cảm hứng trong thư viện rộng lớn của
+              chúng tôi từ người dùng trên khắp thế giới.
             </p>
           </div>
 
@@ -100,8 +102,8 @@
             />
             <h3 class="h5">Works on Windows, Mac, & Linux</h3>
             <p>
-              Our PDF combiner is browser-based. So, it works for all operating
-              systems, including Mac, Windows, and Linux.
+              Trang web của chúng tôi tương thích với Windows, Mac, và Linux,
+              mang lại trải nghiệm linh hoạt và thuận tiện.
             </p>
           </div>
 
@@ -114,11 +116,12 @@
               height="48"
               class="img-fluid mb-3"
             />
-            <h3 class="h5">Easy PDF Combining With a Preview</h3>
+            <h3 class="h5">Secure Storage</h3>
             <p>
-              By dragging your pages in the editor area you can rearrange them
-              or delete single pages. Also, you can add more PDFs to combine
-              them and merge them into one single document.
+              Chào mừng bạn đến với trang web của chúng tôi, nơi bảo mật là ưu
+              tiên hàng đầu. Hệ thống chúng tôi được thiết kế với các biện pháp
+              an ninh hàng đầu để đảm bảo tài liệu của bạn được bảo vệ một cách
+              tuyệt đối.
             </p>
           </div>
 
@@ -131,10 +134,11 @@
               height="48"
               class="img-fluid mb-3"
             />
-            <h3 class="h5">Merge PDFs Reliably</h3>
+            <h3 class="h5">Intuitive and Friendly Interface</h3>
             <p>
-              To merge PDFs or just to add a page to a PDF you usually have to
-              buy expensive software. This online service is safe and secure.
+              Khám phá trải nghiệm sử dụng tuyệt vời với giao diện trực quan và
+              thân thiện người dùng. Các tính năng được sắp xếp một cách logic,
+              giúp bạn dễ dàng tìm thấy và sử dụng mọi chức năng.
             </p>
           </div>
 
@@ -149,21 +153,27 @@
             />
             <h3 class="h5">Processing on the Cloud</h3>
             <p>
-              All PDF merging and creating happens on the cloud without draining
-              any capacity from your computer.
+              Tận hưởng không gian lưu trữ an toàn và đáng tin cậy. Dữ liệu của
+              bạn được lưu trữ trên các máy chủ mạnh mẽ và đáng tin cậy, giúp
+              đảm bảo tính toàn vẹn và khả năng truy cập mọi lúc, mọi nơi.
             </p>
           </div>
+        </div>
+        <div class="slideshow">
+          <SlideShowVue />
         </div>
       </div>
       <div class="second-content">
         <header class="header second-content">
-          <h1 class="text-center text-uppercase">Smallpdf Templates Library</h1>
+          <h1 class="text-center text-uppercase">
+            Programming documentation library
+          </h1>
           <p class="sc-184bfsn-2 ezTbzM w-50 text-center m-auto">
-            Explore hundreds of professional, free templates designed to help
-            get things done faster. From personal reference letters to standard
-            invoice templates, we’ve got what you need, for business or life.
-            Downloadable, editable, and signable, get your work done—simpler,
-            faster, smarter.
+            From popular programming languages to complex concepts, we provide
+            detailed and complete information to assist you in your programming
+            journey. All documents are regularly updated to ensure you always
+            have the latest information. Explore and improve your programming
+            knowledge with us!
           </p>
           <div class="sc-184bfsn-3 eInsOu"></div>
         </header>
@@ -191,20 +201,20 @@ h1 {
   font-weight: bold;
 }
 .first-content h3 {
-  color: #007bff;
+  color: #000000;
   text-shadow: 0 0 10px rgb(11 215 255 / 80%);
 }
 
 .searchbar {
   position: relative;
 }
-.btn-outline-secondary{
-  margin-top:5px;
+.btn-outline-secondary {
+  margin-top: 5px;
   transition: all 0.2s ease-in-out;
 }
-.btn-outline-secondary:hover{
+.btn-outline-secondary:hover {
   scale: 1.2;
-  color:black;
+  color: black;
   background: var(--bg-color);
 }
 #btn-message {
@@ -277,7 +287,7 @@ h1 {
   bottom: 1px;
   border-radius: 50%;
   outline: solid 2px var(--bg-color);
-   background-color: var(--offline-status);
+  background-color: var(--offline-status);
   transition: var(--btn-transition);
 }
 .online-status {
@@ -325,13 +335,13 @@ h1 {
   transform: scaleY(1);
   transition: var(--btn-transition);
 }
-.btn-primary{
+.btn-primary {
   width: 6.5rem;
-  height:2.4rem;
+  height: 2.4rem;
   background: black;
   color: white;
   border: none;
-  font-size:16px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   position: relative;
@@ -339,24 +349,24 @@ h1 {
   overflow: hidden;
 }
 .btn-primary:hover {
- color: black;
+  color: black;
 }
 .btn-primary::after {
- content: "";
- background: white;
- position: absolute;
- z-index: -1;
- left: -20%;
- right: -20%;
- top: 0;
- bottom: 0;
- transform: skewX(-45deg) scale(0, 1);
- transition: all 0.5s;
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
 }
 .btn-primary:hover:after {
- transform: skewX(-45deg) scale(1, 1);
- -webkit-transition: all 0.5s;
- transition: all 0.5s;
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 .button-message:hover .username {
   height: auto;
@@ -541,12 +551,14 @@ a {
 <!-- Swiper JS -->
 <!-- Initialize Swiper -->
 <script lang="ts">
+import Header from "./Header.vue";
 import Accordion from "./Accordion.vue";
 import SlideShowVue from "./SlideShow.vue";
 export default {
   components: {
     Accordion,
     SlideShowVue,
+    Header,
   },
   data() {
     return {

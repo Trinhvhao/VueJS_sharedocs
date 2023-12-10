@@ -24,8 +24,3 @@ export default defineComponent({
     margin-top:24px;
 }
 </style>
-
-// idea: 
-+ gán link cho mỗi của các trang là các component searchVue
-+ dữ liệu search Vue được làm mới, và có giới hạn số lượng được hiển thị
-+ Ví dụ: tạo 48 dữ liệu bài post nhưng trang đầu chỉ dùng 12, trang sau 12, trang sau 12....

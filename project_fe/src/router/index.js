@@ -23,6 +23,18 @@ const router = createRouter({
             name:'Login',
             component:()=> import('../views/Login.vue')
         }
+        ,
+        {
+            path:'/landingpage',
+            name:'LandingPage',
+            component:()=> import('../views/LandingPage.vue')
+        },
+        {
+            path:'/contact',
+            name:'Contact',
+            component:()=> import('../views/Contact.vue')
+        }    
+
     ]
 })
 export default router

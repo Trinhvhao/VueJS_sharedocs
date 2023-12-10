@@ -24,4 +24,4 @@ const analytics = getAnalytics(app);
 const database = getDatabase(app);
 const storage = getStorage(app);
 
-export { storage,database }
+export { storage , database }

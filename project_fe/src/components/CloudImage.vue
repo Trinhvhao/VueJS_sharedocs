@@ -1,31 +1,30 @@
 <template>
-  <img style="max-height:500px;max-width:500px" :src="url" alt="">
+  <div >
+    <label>Upload a file</label>
+    <div>
+      <input type="file" @change="handleChange">
+    </div>
+    <div ></div>
+  </div>
 </template>
+<script >
+import {getStorage,storage, uploadBytesResumable, ref as storageReference} from 'firebase/storage'
+import {ref} from 'vue'
+const progress= ref(0)
+const CuruploadTask = ref(null);
+function handleChange(e){
+  const storage = getStorage()
+  const storageRef = storageReference(storage,'folder/myfile')
+  uploadTask.value = uploadBytesResumable(storageRef, e.target.files[0])
+  uploadTask.on('state_changed', (snapshot)=>{
+    progress.value = (snapshot.bytesTransferred/ snapshot.totalBytes) *100;
+  })
+}
 
-<script>
-import { storage } from "../firebase";
-import { ref, getDownloadURL } from "firebase/storage";
+
+
 
 export default {
-  props: {
-    path: String,
-  },
-  data() {
-    return {
-      url: 'https://placehold.co/600x400/png',
-    };
-  },
-  mounted() {
-    if (this.path) {
-      const storageRef = ref(storage, this.path);
-      getDownloadURL(storageRef)
-        .then((download_url) => {
-          this.url = download_url;
-        })
-        .catch((error) => {
-          console.error("Error getting download URL:", error);
-        });
-    }
-  },
-};
+  
+}
 </script>

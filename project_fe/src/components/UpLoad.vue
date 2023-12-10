@@ -22,76 +22,117 @@
         </div>
       </label>
       <div style="margin-top: 24px">
+        <!-- Thêm sự kiện @click để kích hoạt quá trình tải lên -->
         <button @click="upload" class="button-upload">
           {{ filesSelected ? `Upload ${filesSelected} Files` : "Upload" }}
         </button>
       </div>
-
-      <div v-if="uploadedFileNames.length > 0" class="file-uploaded mt-3">
-        <p>Uploaded Files:</p>
-        <ul>
-          <li v-for="(fileName, index) in uploadedFileNames" :key="index">
-            {{ fileName }}
+      <!-- Bao quanh phần hiển thị tệp tin và thanh tiến trình -->
+      <div v-if="uploadedFileNames.length > 0 || uploadedFileURLs.length > 0 || uploading" class="file-uploaded mt-3">
+        <!-- Hiển thị thanh tiến trình khi uploading là true -->
+        <div v-if="uploading" class="progress col-xl-6 col-md-10">
+          <div class="progress-bar" :style="{ width: `${uploadProgress}%` }"></div>
+        </div>
+        <ul style="margin: 0; padding: 0">
+          <li v-for="(file, index) in uploadedFileNames" :key="index">
+            <div class="file-info col-xl-6 col-sm-12">
+              <div class="file-image">
+                <i class="icon fa-solid fa-file-word"></i>
+              </div>
+              <div class="file-content">
+                <div class="file-name col-12">{{ file }}</div>
+                <div class="file-url col-md-12">
+                  <a :href="uploadedFileURLs[index]" target="_blank">Link To File</a>
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </div>
 </template>
+
 <script>
-import { ref, uploadBytes } from "firebase/storage";
+import { ref, uploadBytes, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
 
 export default {
   data() {
     return {
       uploadedFileNames: [],
+      uploadedFileURLs: [],
       filesSelected: 0,
+      uploadProgress: 0,
+      uploading: false, // Biến để kiểm tra xem quá trình tải lên đang diễn ra hay không
     };
   },
   methods: {
-    upload() {
+    async upload() {
+      // Đặt giá trị ban đầu cho quá trình tải lên
+      this.uploading = true;
+      this.uploadProgress = 0;
+      
       const fileInput = this.$refs.myfile;
       const files = fileInput.files;
 
-      // Kiểm tra xem có ít nhất một file được chọn
       if (files.length > 0) {
-        this.filesSelected = files.length; // Set the number of files selected
-        // Tham chiếu đến thư mục trên firebase storage
-        const storageRef = ref(storage, "folder/"); // You can use a specific folder or remove it for root storage
+        this.filesSelected = files.length;
+        const storageRef = ref(storage, "folder/");
         const promises = [];
 
-        // Upload each file and collect promises
         for (const file of files) {
           const fileRef = ref(storageRef, file.name);
+          const uploadTask = uploadBytesResumable(fileRef, file);
+          
+          uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+              this.uploadProgress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            },
+            (error) => {
+              console.error("Error during upload:", error.message);
+              this.uploading = false; // Đặt giá trị false nếu có lỗi
+            }
+          );
+          
           promises.push(uploadBytes(fileRef, file));
         }
 
-        // Wait for all uploads to complete
-        Promise.all(promises)
-          .then((snapshots) => {
-            console.log("Uploaded successfully:", snapshots);
-            // Extract file names from snapshots and add to uploadedFileNames
-            const uploadedNames = snapshots.map(
-              (snapshot) => snapshot.metadata.name
-            );
-            this.uploadedFileNames =
-              this.uploadedFileNames.concat(uploadedNames);
-          })
-          .catch((error) => {
-            console.error("Error uploading:", error.message);
-          });
+        try {
+          const snapshots = await Promise.all(promises);
+          const downloadURLs = await Promise.all(
+            snapshots.map(async (snapshot) => await getDownloadURL(snapshot.ref))
+          );
+
+          const uploadedData = snapshots.map((snapshot, index) => ({
+            name: snapshot.metadata.name,
+            downloadURL: downloadURLs[index],
+          }));
+
+          this.uploadedFileNames = this.uploadedFileNames.concat(
+            uploadedData.map((data) => data.name)
+          );
+          this.uploadedFileURLs = this.uploadedFileURLs.concat(
+            uploadedData.map((data) => data.downloadURL)
+          );
+          
+          // Khi quá trình tải lên hoàn thành, đặt giá trị false
+          this.uploading = false;
+        } catch (error) {
+          console.error("Error uploading:", error.message);
+          this.uploading = false; // Đặt giá trị false nếu có lỗi
+        }
       } else {
         alert("No file selected for upload.");
+        this.uploading = false; // Đặt giá trị false nếu không có file được chọn
       }
     },
     handleFileChange() {
-      // You can update the file names as files are selected (optional)
       const fileInput = this.$refs.myfile;
+
       if (fileInput && fileInput.files && fileInput.files.length > 0) {
-        const newFileNames = Array.from(fileInput.files).map(
-          (file) => file.name
-        );
+        const newFileNames = Array.from(fileInput.files).map((file) => file.name);
         this.filesSelected = fileInput.files.length;
       } else {
         this.filesSelected = 0;
@@ -173,6 +214,60 @@ button:active {
   box-shadow: none;
   transform: translateY(0);
 }
+.file-info {
+  display: flex;
+  margin: auto;
+  background-color: hsl(0, 0%, 10%);
+  align-items: center;
+  border-radius: 20px;
+  padding: 10px 30px;
+  gap:10px
+}
+.file-name {
+  padding-top: 12px;
+  text-align: left;
+  color:#fff;
+}
+.file-url {
+  text-align: left;
+  
+}
+.file-url a{
+  color:#00cbd9;
+  font-size: 1rem;
+  font-family: Verdana, BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif ;
+}
+.file-uploaded li {
+  list-style: none;
+  margin:20px;
+}
+.file-image .icon{
+  width: 60px;
+  height: 60px;
+  color: white;
+}
+.file-content{
+  display: flex;
+  flex-direction: column;
+  float: left;;
+  gap:5px;
+}
+.progress {
+  text-align: center;
+  margin: 24px auto;
+  border-radius: 20px;
+}
+.progress-bar {
+  /* color of choise */
+  --clr: #05a8aa;
+  /* loading time of choice */
+  --load-time: 2s;
+  outline: 5px solid var(--clr);
+  outline-offset: 5px;
+  position: relative;
+  padding: 12px;
+  background-color: rgb(0, 174, 217);
+}
 
 .file-upload-design {
   display: flex;
@@ -246,8 +341,9 @@ button:active {
   transform: scale(0.97);
   box-shadow: 7px 5px 56px -10px #00cbd9;
 }
-.file-uploaded p, li{
+.file-uploaded p,
+li {
   color: black;
 }
-</style>
 
+</style>

@@ -7,7 +7,7 @@
       placeholder="Enter your search query"
     />
     <div v-if="filteredItems.length > 0" class="grid-container">
-      <div v-for="item in filteredItems" :key="item.id" class="card p-2">
+      <div v-for="item in paginatedItems" :key="item.id" class="card p-2">
         <!-- Content of each card -->
         <div class="card-body">
           <div class="card-img">
@@ -20,10 +20,11 @@
                   class="card-link p-2"
                   :href="item.link"
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   View
-                  <i class="fa-solid fa-eye"></i>
-              </a></strong>
+                  <i class="fa-solid fa-eye"></i> </a
+              ></strong>
             </button>
             <button class="card-button2" @click="downloadItem(item.link)">
               Download
@@ -41,44 +42,51 @@
       </div>
     </div>
     <div v-else class="no-results-message">No matching items found.</div>
+    <div class="pagination">
+      <NPagination
+        v-if="totalPages > 1"
+        v-model="currentPage"
+        :page-count="totalPages"
+        @update:page="handlePageChange"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+
+// Import các thư viện và thành phần cần thiết
+// 'axios' dùng để thực hiện các yêu cầu http
 import axios from "axios";
-import { saveAs } from "file-saver";
-import { storage } from "../firebase"; // Thay đổi đường dẫn tới file firebase.js của bạn
-import { ref, getDownloadURL } from "firebase/storage";
+import PaginationVue from "./Pagination.vue";
+import { NPagination } from "naive-ui";
 export default {
+  components: {
+    PaginationVue,
+    NPagination,
+  },
   methods: {
-    downloadItem(item) {
-      console.log("item.link:", item.link);
-      const fileRef = ref(storage, item.link);
-      getDownloadURL(fileRef)
-        .then((downloadUrl) => {
-          axios
-            .get(downloadUrl, { responseType: "blob" })
-            .then((response) => {
-              const blob = new Blob([response.data], {
-                type: "application/pdf",
-              });
-              saveAs(blob, item.title);
-            })
-            .catch((error) => {
-              console.error("Error:", error.message);
-            });
-        })
-        .catch((error) => {
-          console.error("Error:", error.message);
-        });
+    // Phương thức này nhận một trang mới làm tham số và gán trang hiện tại làm trang mới
+    handlePageChange(newPage) {
+      this.currentPage = newPage;
     },
   },
+  // Hàm 'data' trả về một đối tượng chứa các thuộc tính dữ liệu khởi tạo cho component
   data() {
     return {
       searchQuery: "",
       items: [],
+      currentPage: 1, // Trang hiện tại
+      itemsPerPage: 12, // Số lượng mục trên mỗi tranăn
     };
   },
+  setup() {
+    return {
+      page: ref(2),
+    };
+  },
+  // Hook mounted được sử dụng để thực hiện một yêu cầu HTTP để lấy dữ liệu từ một API giả mạo khi component được tạo ra.
+  //  Dữ liệu được nhận từ yêu cầu sẽ được gán cho thuộc tính items.
   mounted() {
     // Replace the URL with your Mock API endpoint
     const apiUrl = "https://65661495eb8bb4b70ef2e149.mockapi.io/files";
@@ -92,15 +100,28 @@ export default {
       });
   },
   computed: {
+    // filteredItems được sử dụng để lọc các mục trong mảng items dựa trên điều kiện tìm kiếm được nhập vào
+    // Lời gọi phương thức 'filter' trên mảng 'items'.
+    // Phương thức filter sẽ tạo ra một mảng mới chứa các phần tử của mảng gốc mà thoản mãn điều kiện được xác định bởi hàm callback
     filteredItems() {
       return this.items.filter((item) => {
         return (
+    // Kiểm tra xem 'searchQuery' có xuất hiện trong 'title, description' của mỗi phần tử 'item' không == chuyển cả 'searchQuery' và 'title' về dạng chữ thường để so sánh
           item.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
           item.description
             .toLowerCase()
             .includes(this.searchQuery.toLowerCase())
         );
       });
+    },
+    paginatedItems() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.filteredItems.slice(startIndex, endIndex);
+    },
+    // totalPages: Tính toán tổng số trang dựa trên filteredItems và số lượng mục trên mỗi trang.
+    totalPages() {
+      return Math.ceil(this.filteredItems.length / this.itemsPerPage);
     },
   },
 };
@@ -110,32 +131,33 @@ export default {
 /* Your component-specific styles go here */
 .card-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 24px auto;
   align-items: center;
   text-align: center;
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+.pagination{
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 .search {
-  padding: 5px;
-  font-size: 1.2rem;
-  border: 2px solid rgb(20 33 210);
+  padding: 10px;
+  border: 1px solid #000000; /* Màu trắng cho viền thanh tìm kiếm */
+  background-color: #fdfdfd; /* Màu đen cho nền thanh tìm kiếm */
+  color: #847878; /* Màu trắng cho chữ trong thanh tìm kiếm */
   border-radius: 20px;
-  width: 60%;
-  text-align: center;
+  width: 50%;
   margin-bottom: 20px;
-  font-family: "Poppins", sans-serif;
 }
+
 .search:focus {
   outline: none;
+  color: rgb(30, 31, 31);
   border-color: #3498db;
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
 }
 .search:hover {
-  transform: scale(1.02);
+  transform: scale(1.1);
   transition: all 0.2s ease-in-out;
 }
 .card {
