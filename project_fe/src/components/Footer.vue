@@ -41,7 +41,7 @@
       </div>
       <hr>
       <p class="copyright">© 2023 Share Document. All rights reserved. | Privacy Policy | Terms of Service</p>
-       <p class="copyright">Built by <i>Trinh Van Hao - Nguyen Phuong Nam</i></p>
+       <p class="copyright">Built by <i>Trinh Van Hao</i></p>
     </footer>
   </div>
 </template>

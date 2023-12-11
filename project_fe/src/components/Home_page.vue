@@ -192,6 +192,19 @@
   </div>
 </template>
 <style scoped>
+.col-md-4 {
+   animation: fadeinUp 2s ease;
+}
+@keyframes fadeinUp {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 .header {
   background-color: #f8f9fa; /* Set your desired background color */
 }

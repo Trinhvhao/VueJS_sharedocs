@@ -28,5 +28,26 @@ h1 {
     0.025em 0.025em 0 mix(#fff, #1edfe9, 68%),
     0.03em 0.03em 0 mix(#fff, #1edfe9, 70%),
     0.035em 0.035em 0 mix(#fff, #1edfe9, 72%);
+      animation: fadeinUp 2s ease;
+}
+@keyframes fadeinRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes fadeinUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 </style>

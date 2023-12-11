@@ -89,7 +89,7 @@
     </div>
     <!-- Person who created the page  -->
     <div class="who-content" ref="whoCreatePage">
-      <div class="title"><h1 contenteditable>Who created the page ?</h1></div>
+      <div class="title"><h1 contenteditable>Who created This Website?</h1></div>
       <div class="container1">
         <div class="hero-content col-xl-6 col-md-12 col-12">
           <h1>Hi,</h1>
@@ -142,7 +142,7 @@
         </div>
         <div class="hero-image col-xl-6 col-md-12 col-12">
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/sharedocs-293bb.appspot.com/o/folder%2Fz4813393122832_055ebbd38f2fb288fe618004bfc1db7c.jpg?alt=media&token=369f9a33-82ab-4c60-af3a-5b676a0624f0"
+            src="https://firebasestorage.googleapis.com/v0/b/sharedocs-293bb.appspot.com/o/folder%2Fz4813393122832_055ebbd38f2fb288fe618004bfc1db7c.jpg?alt=media&token=6f742aa6-cf1b-4a96-917b-9db6ee1f050e"
             alt=""
             style="object-position: center; height: 100%"
           />

@@ -150,6 +150,26 @@ export default {
   color: rgb(255, 255, 255);
   margin-top: 60px;
 }
+@keyframes fadeinRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes fadeinUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 .header p {
   font-size: 2rem;
   text-transform: uppercase;
@@ -158,6 +178,7 @@ export default {
   font-weight: 700;
   line-height: 1.6rem;
   text-shadow: 0 0 5px rgb(23 255 250 / 80%), 0 0 10px rgb(51 240 255 / 80%);
+  animation: fadeinUp 2s ease ;
 }
 .header {
   padding-top: 24px;
@@ -285,6 +306,7 @@ button:active {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  animation: fadeinRight 2s ease;
 }
 .btn-primary {
   width: 8rem;

@@ -1,5 +1,9 @@
 <template>
-  <div class="app">
+<n-loading-bar-provider>
+  <n-message-provider>
+    <n-notification-provider>
+      <n-dialog-provider>
+         <div class="app">
     <div class="container-fluid">
       <div class="sidebar">
         <!-- <HomePageVue/> -->
@@ -23,6 +27,7 @@
           <div class="expand-content">
             <HomeContent />
             <RegardingVue />
+            <TimeLineVue/>
           </div>
        
         </div> 
@@ -32,6 +37,11 @@
       </div>
     </div>
   </div>
+      </n-dialog-provider>
+    </n-notification-provider>
+  </n-message-provider>
+</n-loading-bar-provider>
+ 
 </template>
 
 <script>
@@ -48,6 +58,7 @@ import HomeContent from "./components/HomeContent.vue";
 import SlideOutVue from "./components/SlideOut.vue";
 import RegardingVue from "./components/Regarding.vue";
 import FooterVue from "./components/Footer.vue"
+import TimeLineVue from './components/TimeLine.vue';
 export default {
   components: {
     HomePageVue,
@@ -63,6 +74,7 @@ export default {
     SlideOutVue,
     RegardingVue,
     FooterVue,
+    TimeLineVue,
   },
   computed: {
     isHomePage() {

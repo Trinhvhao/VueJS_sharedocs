@@ -53,7 +53,7 @@
         /><span class="span" for="input">ImageLink</span>
       </div>
 
-      <button @click="sendContent" :disabled="!isFormValid">Create Post</button>
+      <button @click="sendContent" click="!isFormValid">Create Post</button>
     </div>
   </div>
 </template>
@@ -215,6 +215,6 @@ button:hover {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 48px;
+  margin: 48px auto;
 }
 </style>

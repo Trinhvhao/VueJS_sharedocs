@@ -20,7 +20,7 @@
         <span class="material-icons">description</span>
         <span class="text">About</span>
       </router-link>
-      <router-link to="/team" class="button">
+      <router-link to="/community" class="button">
         <span class="material-icons">group</span>
         <span class="text">Community</span>
       </router-link>

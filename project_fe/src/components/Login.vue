@@ -145,47 +145,40 @@ export default {
 /* Your existing styles */
 </style>
 
-<style scoped > 
+<style scoped>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  padding: 10px;
-  background-position: center;
-  align-items: center;
-  background-image: url("C:/Users/Admin/OneDrive/Tài liệu/LibraryCode/HTML_Document/DuanWeb001/assets/img/qvo16p0n20220607102443.jpg");
-}
 .input-container {
   max-width: 700px;
   width: 100%;
-margin: auto;
+  margin: 48px auto;
   background-color: #a8dfe4a6;
   padding: 25px 30px;
   border-radius: 5px;
 }
+
 .input-container .title {
   font-size: 1.8rem;
   letter-spacing: 1px;
   line-height: 1.5;
   font-weight: 500;
 }
+
 .user-details {
   display: flex;
-  /* justify-content: ;
-            flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .input-box {
   margin: 20px 0 12px 0;
-  width: calc(100% / 2 - 20px);
+  width: calc(100% - 20px); /* Full width on small screens */
 }
+
 .input-box input {
   height: 45px;
   width: 100%;
@@ -194,15 +187,18 @@ margin: auto;
   text-indent: 10px;
   margin-top: 10px;
 }
+
 .input-box span {
   margin-bottom: 5px;
 }
+
 .input-button {
   margin: 30px auto;
   text-align: center;
 }
+
 .input-button button {
-  width: 200px;
+  width: 100%; /* Full width on small screens */
   background-color: #92d2cc;
   padding: 10px;
   font-size: 1.2rem;

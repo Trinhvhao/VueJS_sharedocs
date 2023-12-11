@@ -7,7 +7,8 @@
       placeholder="Enter your search query"
     />
     <div v-if="filteredItems.length > 0" class="grid-container">
-      <div v-for="item in paginatedItems" :key="item.id" class="card p-2">
+    <div class="row">
+      <div v-for="item in paginatedItems" :key="item.id" class="card p-4 col-xl-4 col-md-4 col-12">
         <!-- Content of each card -->
         <div class="card-body">
           <div class="card-img">
@@ -40,6 +41,7 @@
           </a>
         </div>
       </div>
+    </div>
     </div>
     <div v-else class="no-results-message">No matching items found.</div>
     <div class="pagination">
@@ -77,7 +79,7 @@ export default {
       searchQuery: "",
       items: [],
       currentPage: 1, // Trang hiện tại
-      itemsPerPage: 12, // Số lượng mục trên mỗi tranăn
+      itemsPerPage: 12, // Số lượng mục trên mỗi trang
     };
   },
   setup() {
