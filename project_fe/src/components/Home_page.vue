@@ -21,6 +21,7 @@
               </svg>
             </div>
           </div>
+<!-- sử dụng '{{$store.state.user ? $store.state.user.username: "Guest"}} để hiển thị thông điệp chào mừng. Nếu 'user' trong store có giá trị. thì hiển thị tên người dùng, ngược lại hiển thị "Guest" -->
           <div class="notice-content">
             <div class="username">
               <span class="user-text p-2"
@@ -69,9 +70,9 @@
             />
             <h3 class="h5">Simple Online Tool To Combine PDFs</h3>
             <p>
-              Trang web của chúng tôi cho phép bạn nhanh chóng tải lên nhiều tệp
-              trong một lần, chỉ trong vài cú nhấp chuột. Không có đăng ký cần
-              thiết để sử dụng công cụ trực tuyến này.
+              Our site allows you to quickly upload multiple files
+               in one go, in just a few clicks. No registration required
+               required to use this online tool.
             </p>
           </div>
 
@@ -86,8 +87,8 @@
             />
             <h3 class="h5">Discover and read amazing publications</h3>
             <p>
-              Xem hàng triệu ấn phẩm đầy cảm hứng trong thư viện rộng lớn của
-              chúng tôi từ người dùng trên khắp thế giới.
+              View millions of inspiring publications in our extensive library
+               us from users around the world.
             </p>
           </div>
 
@@ -102,8 +103,8 @@
             />
             <h3 class="h5">Works on Windows, Mac, & Linux</h3>
             <p>
-              Trang web của chúng tôi tương thích với Windows, Mac, và Linux,
-              mang lại trải nghiệm linh hoạt và thuận tiện.
+              Our website is compatible with Windows, Mac, and Linux,
+               providing a flexible and convenient experience.
             </p>
           </div>
 
@@ -118,10 +119,10 @@
             />
             <h3 class="h5">Secure Storage</h3>
             <p>
-              Chào mừng bạn đến với trang web của chúng tôi, nơi bảo mật là ưu
-              tiên hàng đầu. Hệ thống chúng tôi được thiết kế với các biện pháp
-              an ninh hàng đầu để đảm bảo tài liệu của bạn được bảo vệ một cách
-              tuyệt đối.
+              Welcome to our website, where security is paramount
+               top first. Our system is designed with these measures in mind
+               Top security to ensure your documents are protected in a way
+               absolute.
             </p>
           </div>
 
@@ -136,9 +137,9 @@
             />
             <h3 class="h5">Intuitive and Friendly Interface</h3>
             <p>
-              Khám phá trải nghiệm sử dụng tuyệt vời với giao diện trực quan và
-              thân thiện người dùng. Các tính năng được sắp xếp một cách logic,
-              giúp bạn dễ dàng tìm thấy và sử dụng mọi chức năng.
+             Discover a great user experience with an intuitive interface and
+               User friendly. Features are arranged logically,
+               makes it easy to find and use every function.
             </p>
           </div>
 
@@ -153,9 +154,9 @@
             />
             <h3 class="h5">Processing on the Cloud</h3>
             <p>
-              Tận hưởng không gian lưu trữ an toàn và đáng tin cậy. Dữ liệu của
-              bạn được lưu trữ trên các máy chủ mạnh mẽ và đáng tin cậy, giúp
-              đảm bảo tính toàn vẹn và khả năng truy cập mọi lúc, mọi nơi.
+             Enjoy safe and reliable storage space. Data of
+               you are hosted on powerful and reliable servers, which helps
+               ensuring integrity and accessibility anytime, anywhere.
             </p>
           </div>
         </div>
@@ -578,21 +579,21 @@ export default {
       faqs: [
         {
           question:
-            "Tại sao tôi nên sử dụng trang web chia sẻ tài liệu của bạn?",
+            "Why should I use your document-sharing website?",
           answer:
-            "Trang web chia sẻ tài liệu của chúng tôi cung cấp một nơi thuận tiện để người dùng có thể tìm kiếm, chia sẻ, và tải xuống các tài liệu hữu ích. Chúng tôi tập trung vào việc tạo ra một cộng đồng nơi mọi người có thể chia sẻ kiến thức và kinh nghiệm.",
+            "Our document-sharing website provides a convenient place for users to search, share, and download useful documents. We focus on creating a community where people can share knowledge and experiences",
           open: false,
         },
         {
-          question: "Làm thế nào để tìm kiếm tài liệu trên trang web của bạn?",
+          question: "How do I search for documents on your website?",
           answer:
-            " Để tìm kiếm tài liệu, bạn có thể sử dụng thanh tìm kiếm trên trang chủ. Đơn giản nhập từ khoá hoặc tên tài liệu bạn quan tâm và nhấn Enter. Kết quả sẽ hiển thị các tài liệu phù hợp với yêu cầu của bạn.",
+            " To search for documents, you can use the search bar on the homepage. Simply enter keywords or the document's name that you're interested in and press Enter. The results will display documents relevant to your request.",
           open: false,
         },
         {
-          question: " Làm thế nào để chia sẻ tài liệu của tôi?",
+          question: "How do I share my documents?",
           answer:
-            "Để chia sẻ tài liệu, đăng nhập vào tài khoản của bạn và chọn tùy chọn 'Chia sẻ tài liệu'. Bạn có thể tải lên tài liệu của mình, cung cấp mô tả chi tiết và chọn các thẻ liên quan để giúp người khác dễ dàng tìm thấy.",
+            "To share documents, log in to your account and select the 'Share Document' option. You can upload your documents, provide a detailed description, and choose relevant tags to help others easily find them.",
           open: false,
         },
       ],

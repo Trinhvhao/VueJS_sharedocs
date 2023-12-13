@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
           <img :src="logoURL" class="logo" alt="" />
-          <p>Tại đây, bạn có thể truy cập hàng ngàn tài liệu, sách, và mã nguồn, hoàn toàn miễn phí. Hãy đồng hành cùng chúng tôi, lan tỏa kiến thức và tạo nên một cộng đồng lập trình mạnh mẽ.</p>
+          <p>Here, you can access thousands of documents, books, and source code, completely free. Please join us, spread knowledge and create a strong programming community.</p>
         </div>
         <div class="col">
           <h3>Address<div class="underline"><span></span></div></h3>

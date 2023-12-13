@@ -6,7 +6,7 @@
           <div class="address details">
             <i class="fas fa-map-marker-alt"></i>
             <div class="topic">Address</div>
-            <div class="text-one">Phú Lãm</div>
+            <div class="text-one">Phu Lam</div>
             <div class="text-two">Dai Nam University</div>
           </div>
           <div class="phone details">

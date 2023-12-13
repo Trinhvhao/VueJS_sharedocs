@@ -8,9 +8,9 @@
         <div class="hero-content col-xl-6 col-md-12 col-12">
           <h2>Welcome To Our Website</h2>
           <p>
-            Chào mừng bạn đến với trung tâm kiến thức của chúng tôi! Nơi chia sẻ
-            những tài liệu và kiến thức đa dạng để đồng hành cùng bạn trên hành
-            trình học tập và nghiên cứu.
+            Welcome to our knowledge center! A place to share Diverse documents
+            and knowledge to accompany you on your journey study and research
+            program.
           </p>
           <button class="hero-button" @click="scrollToLearnMore">
             Learn more
@@ -35,9 +35,9 @@
         <div class="hero-content col-xl-6 col-md-12 col-12">
           <h2>Diverse and Quality Resources at Your Fingertips</h2>
           <p>
-            Nguồn tài nguyên đa dạng và chất lượng luôn sẵn có với chỉ một cú
-            nhấp chuột. Hãy khám phá và tiếp cận kiến thức theo cách dễ dàng
-            nhất.
+            Diverse and quality resources are available at just a click
+             click. Explore and access knowledge in an easy way
+             best.
           </p>
         </div>
       </div>
@@ -47,9 +47,9 @@
         <div class="hero-content col-xl-6 col-md-12 col-12">
           <h2>User-Friendly Interface for Seamless Exploration</h2>
           <p>
-            Giao diện thân thiện và dễ sử dụng, giúp bạn hiểu rõ hơn về chúng
-            tôi và cách tận dụng tối đa từ tài nguyên đa dạng mà chúng tôi cung
-            cấp.
+            The interface is friendly and easy to use, helping you understand them better
+             me and how to make the most of the diverse resources we offer
+             grant.
           </p>
         </div>
         <div class="hero-image col-xl-6 col-md-12 col-12">
@@ -89,7 +89,9 @@
     </div>
     <!-- Person who created the page  -->
     <div class="who-content" ref="whoCreatePage">
-      <div class="title"><h1 contenteditable>Who created This Website?</h1></div>
+      <div class="title">
+        <h1 contenteditable>Who created This Website?</h1>
+      </div>
       <div class="container1">
         <div class="hero-content col-xl-6 col-md-12 col-12">
           <h1>Hi,</h1>
@@ -97,13 +99,13 @@
             I'am <i style="color: #81c7c7">Trinh Van Hao<br />(Hayyie)</i>
           </h1>
           <h4>
-            Đang sống và học tập tại Hà Nội. Sinh viên năm 2 khoa Công Nghệ
-            Thông Tin theo chuyên ngành Blockchain.
+            Living and studying in Hanoi. 2nd year student of Faculty of
+            Technology Information by Blockchain major.
           </h4>
           <div class="des">
             <h3>
-              <span style="font-size: 2rem; color: #098bff">"</span>Trừ những
-              lúc hay nói ra thì ít nói, hướng nội<span
+              <span style="font-size: 2rem; color: #098bff">"</span>Except those
+              When he speaks out, he is quiet and introverted<span
                 style="font-size: 2rem; color: #098bff"
                 >"</span
               >
@@ -149,6 +151,61 @@
         </div>
       </div>
     </div>
+    <div class="container1">
+      <div class="hero-content col-xl-6 col-md-12 col-12">
+        <h1>Hey,?</h1>
+        <h1>
+          <i style="color: #be52ec"
+            >Nguyen Phuong Nam<br />(Lat Pat Power#Dynam)</i
+          >
+        </h1>
+        <h4>
+          Born and raised in Lao Cai, lives, studies and works in Hanoi. 2nd
+          year student <br />
+          science Technology Specialized Information on Artificial Intelligence
+          and Robotics.
+        </h4>
+        <div class="des">
+          <h3>
+            <span style="font-size: 2rem; color: #098bff">"</span>
+            Việc không khó , khó quá thì khỏi làm.<span
+              style="font-size: 2rem; color: #098bff"
+              >"</span
+            >
+          </h3>
+        </div>
+        <div class="contact text-center">
+          <a
+            href="https://www.facebook.com/profile.php?id=100042710800089&mibextid=LQQJ4d"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="icon fa-brands fa-facebook"></i
+          ></a>
+          <a
+            href="https://github.com/nammmmbb9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="icon fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/namden2244/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="icon fa-brands fa-instagram"></i
+          ></a>
+        </div>
+        <div class="hero-image col-xl-6 col-md-12 col-12">
+          <img
+            src="https://i.pinimg.com/474x/00/1f/97/001f97f36f12b212060f79f450dcd791.jpg"
+            alt=""
+            style="object-position: center; height: 100%"
+          />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 <script>
@@ -160,28 +217,28 @@ export default {
           avatar:
             "https://firebasestorage.googleapis.com/v0/b/sharedocs-293bb.appspot.com/o/folder%2F405311873_1374024146569147_4380411881023948234_n.jpg?alt=media&token=531ec626-d4c1-4754-b341-0b1f49716dfa",
           comment:
-            "Giao diện trực quan và dễ sử dụng, giúp người dùng tìm kiếm và truy cập tài liệu một cách thuận lợi. Màu sắc và bố cục trang chủ hấp dẫn, làm cho trang web trở nên chuyên nghiệp.",
+            "The interface is intuitive and easy to use, helping users search and access documents conveniently. Attractive homepage colors and layout, making the website look professional.",
           author: "Trinh Van Hao",
         },
         {
           avatar:
             "https://i.pinimg.com/564x/d0/9d/a1/d09da117fa5e737f978103bb274843fc.jpg",
           comment:
-            "Tài liệu được tổ chức rõ ràng và có cấu trúc, giúp người dùng dễ dàng đọc và hiểu. Nội dung đa dạng và phong phú, đáp ứng nhu cầu học tập và nghiên cứu của người sử dụng.",
+            "The document is clearly organized and structured, making it easy for users to read and understand. The content is diverse and rich, meeting the learning and research needs of users.",
           author: "Ths Đặng Khánh Trung",
         },
         {
           avatar:
             "https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/383209139_790954919698035_7032342075252858837_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=smRNn28MGvkAX9b--OB&_nc_ht=scontent.fhan2-4.fna&oh=00_AfDxP1B-_eNrKt4WL2kuDMdO64aGv--Bpo_hlvf7j9Zb-Q&oe=6579B07F",
           comment:
-            "Trang web đáp ứng tốt trên nhiều thiết bị, từ máy tính đến điện thoại di động. Ứng dụng di động chất lượng, giúp người dùng truy cập tài liệu mọi nơi.",
+            "The website is responsive on many devices, from computers to mobile phones. Quality mobile application, helping users access documents anywhere.",
           author: "Sinh viên khoa CNTT DNU",
         },
         {
           avatar:
             "https://i.pinimg.com/564x/35/68/c4/3568c41f188379fe5405f1d2b6f6c34f.jpg",
           comment:
-            "Đây thật sự là một trang web tuyệt vời, mặc dù chưa đẩy đủ chức năng như những trang web chia sẻ tài liệu khác nhưng mọi thứ ở đây hoàn toàn miễn phí. Điều đó thật tuyệt vời. Thanks you",
+            "This is truly a great website, although not as fully functional as other document sharing websites, everything here is completely free. That was amazing. Thank you",
           author: "Nguyễn Phương Linh",
         },
       ],
